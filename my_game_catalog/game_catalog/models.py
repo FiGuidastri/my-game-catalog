@@ -5,8 +5,8 @@ from django.db import models
 class Jogo(models.Model):
     STATUS_CHOICES = [
         ('quero_jogar', 'Quero Jogar'),
-        ('abandonado', 'Abandonado'),
         ('jogando', 'Jogando'),
+        ('abandonado', 'Abandonado'),
         ('zerado', 'Zerado'),
     ]
     
@@ -14,7 +14,7 @@ class Jogo(models.Model):
     genero = models.CharField(max_length=100)
     plataforma = models.CharField(max_length=100)
     ano_lancamento = models.IntegerField()
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='quero_jogar')  # Campo de status
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='quero_jogar')
     
     def __str__(self):
         return self.titulo

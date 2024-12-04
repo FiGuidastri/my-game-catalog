@@ -55,15 +55,15 @@ ROOT_URLCONF = "my_game_catalog.urls"
 
 TEMPLATES = [
     {
-        "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
-        "APP_DIRS": True,
-        "OPTIONS": {
-            "context_processors": [
-                "django.template.context_processors.debug",
-                "django.template.context_processors.request",
-                "django.contrib.auth.context_processors.auth",
-                "django.contrib.messages.context_processors.messages",
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates'],  # Confirme que a pasta templates está sendo reconhecida
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
             ],
         },
     },
@@ -76,9 +76,13 @@ WSGI_APPLICATION = "my_game_catalog.wsgi.application"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',  # Usar o backend MySQL
+        'NAME': 'my_game_catalog',               # Nome do banco de dados
+        'USER': 'root',                     # Usuário do MySQL
+        'PASSWORD': 'root',                   # Senha do MySQL
+        'HOST': 'localhost',                   # Ou o endereço do servidor MySQL
+        'PORT': '3306',                        # Porta padrão do MySQL
     }
 }
 
@@ -124,4 +128,6 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'  # Página para a qual o usuário será redirecionado após o login
+LOGOUT_REDIRECT_URL = '/'  # Página para a qual o usuário será redirecionado após o logout
