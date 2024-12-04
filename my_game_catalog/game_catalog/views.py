@@ -2,8 +2,14 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse
+from django.http import JsonResponse
 from .models import Jogo, Avaliacao
 from .forms import JogoForm, AvaliacaoForm, RegistroUsuarioForm
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import JogoSerializer
+
 
 def jogo_list(request):
     jogos = Jogo.objects.all()
@@ -89,3 +95,7 @@ def registro_usuario(request):
         form = UserCreationForm()
 
     return render(request, 'registro.html', {'form': form})
+
+def listar_jogos(request):
+    jogos = Jogo.objects.all().values('id', 'nome', 'status', 'descricao')
+    return JsonResponse(list(jogos), safe=False)

@@ -14,4 +14,5 @@ urlpatterns = [
     path('avaliar_jogo/<int:jogo_id>/', views.avaliar_jogo, name='avaliar_jogo'),
     path('registro/', views.registro_usuario, name='registro'),
     path('login/', auth_views.LoginView.as_view(), name='login'),
+    path('api/jogos/', views.listar_jogos, name='listar_jogos'),
 ]

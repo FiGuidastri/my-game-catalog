@@ -1,25 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Jogos</title>
-</head>
-<body>
-    <h1>Bem-vindo ao Catálogo de Jogos</h1>
+{% extends 'base_generic.html' %}
 
-    <a href="{% url 'adicionar_jogo' %}">Adicionar Jogo</a>
+{% block title %}Página Inicial - Catálogo de Jogos{% endblock %}
 
-    <h2>Lista de Jogos</h2>
-    <ul>
-        {% for jogo in jogos %}
-            <li>
-                <strong>{{ jogo.titulo }}</strong> ({{ jogo.plataforma }}) - {{ jogo.genero }} 
-                - Status: {{ jogo.status }}
-                <a href="{% url 'editar_jogo' jogo.id %}">Editar</a>
-            </li>
-        {% endfor %}
-    </ul>
-    </ul>
-</body>
-</html>
+{% block content %}
+<h1>Bem-vindo ao Catálogo de Jogos</h1>
+
+<a href="{% url 'adicionar_jogo' %}">Adicionar Jogo</a>
+
+<h2>Lista de Jogos</h2>
+<ul>
+    {% for jogo in jogos %}
+        <li>
+            <strong>{{ jogo.titulo }}</strong> ({{ jogo.plataforma }}) - {{ jogo.genero }} 
+            - Status: {{ jogo.status }}
+            <a href="{% url 'editar_jogo' jogo.id %}">Editar</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

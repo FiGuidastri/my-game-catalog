@@ -5,10 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Catalog</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
     <header>
-        <h1>Bem-vindo ao Game Catalog</h1>
+        <h1>Bem-vindo Catalogo de Jogos</h1>
         <nav>
             <ul>
                 <li><a href="{% url 'home' %}">Início</a></li>

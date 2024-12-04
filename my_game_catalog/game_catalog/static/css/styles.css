@@ -1,0 +1,121 @@
+/* Reset básico de margens e paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    padding: 20px;
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #34495e;
+    margin-bottom: 15px;
+}
+
+/* Container de jogos */
+.jogo-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+/* Estilo dos itens de jogo */
+.jogo-item {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    width: 30%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Efeito ao passar o mouse sobre os itens de jogo */
+.jogo-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: #3498db;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para o formulário */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos dos inputs e selects */
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Efeito ao passar o mouse sobre o botão */
+input[type="submit"]:hover {
+    background-color: #27ae60;
+}
+
+/* Estilo para o cabeçalho de página */
+header {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Estilo de rodapé */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    /* Alinhamento vertical dos itens de jogo em telas menores */
+    .jogo-lista {
+        flex-direction: column;
+    }
+
+    /* Cada item de jogo ocupará a largura total em telas menores */
+    .jogo-item {
+        width: 100%;
+    }
+}
